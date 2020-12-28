@@ -109,8 +109,10 @@ class AudioGraphView: UIView {
     override func layoutSubviews() {
         super.layoutSubviews()
         
-        let scale = bounds.width / lastBounds.width
-        scrollView.recenterForScale(scale)
+        if lastBounds.width > 0 {
+            let scale = bounds.width / lastBounds.width
+            scrollView.recenterForScale(scale)
+        }
         lastBounds = bounds
         
         updateScrollViewSize()
