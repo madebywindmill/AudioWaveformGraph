@@ -40,7 +40,6 @@ class AudioGraphView: UIView {
         didSet {
             scrollView.delegate = viewPort
 
-            viewPort.screenScale = self.contentScaleFactor
             viewPort.onZoom { [weak self] in
                 guard let self = self else { return }
                 self.viewPortZoomed()
@@ -109,6 +108,10 @@ class AudioGraphView: UIView {
     override func layoutSubviews() {
         super.layoutSubviews()
         
+        if let window = window {
+            viewPort.screenScale = window.screen.scale
+        }
+
         if lastBounds.width > 0 {
             let scale = bounds.width / lastBounds.width
             scrollView.recenterForScale(scale)
