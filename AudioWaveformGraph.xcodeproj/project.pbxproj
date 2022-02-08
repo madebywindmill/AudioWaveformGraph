@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3D29594227B2C7B300BA7C0A /* DEVELOPMENT_TEAM.template.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 3D29593F27B2C7B300BA7C0A /* DEVELOPMENT_TEAM.template.xcconfig */; };
+		3D29594327B2C7B300BA7C0A /* DEVELOPMENT_TEAM.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 3D29594027B2C7B300BA7C0A /* DEVELOPMENT_TEAM.xcconfig */; };
+		3D29594427B2C7B300BA7C0A /* Shared.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 3D29594127B2C7B300BA7C0A /* Shared.xcconfig */; };
 		EF1512EB258BDA8000F064A6 /* UIKitExtras.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF1512EA258BDA8000F064A6 /* UIKitExtras.swift */; };
 		EFC5909725840B1500E5D4B4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC5909625840B1500E5D4B4 /* AppDelegate.swift */; };
 		EFC5909925840B1500E5D4B4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC5909825840B1500E5D4B4 /* SceneDelegate.swift */; };
@@ -29,6 +32,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3D29593F27B2C7B300BA7C0A /* DEVELOPMENT_TEAM.template.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = DEVELOPMENT_TEAM.template.xcconfig; sourceTree = "<group>"; };
+		3D29594027B2C7B300BA7C0A /* DEVELOPMENT_TEAM.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = DEVELOPMENT_TEAM.xcconfig; sourceTree = "<group>"; };
+		3D29594127B2C7B300BA7C0A /* Shared.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Shared.xcconfig; sourceTree = "<group>"; };
 		EF1512EA258BDA8000F064A6 /* UIKitExtras.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIKitExtras.swift; sourceTree = "<group>"; };
 		EFC5909325840B1500E5D4B4 /* AudioWaveformGraph.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AudioWaveformGraph.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EFC5909625840B1500E5D4B4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -64,9 +70,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3D29593E27B2C7B300BA7C0A /* Xcode-config */ = {
+			isa = PBXGroup;
+			children = (
+				3D29593F27B2C7B300BA7C0A /* DEVELOPMENT_TEAM.template.xcconfig */,
+				3D29594027B2C7B300BA7C0A /* DEVELOPMENT_TEAM.xcconfig */,
+				3D29594127B2C7B300BA7C0A /* Shared.xcconfig */,
+			);
+			path = "Xcode-config";
+			sourceTree = "<group>";
+		};
 		EFC5908A25840B1500E5D4B4 = {
 			isa = PBXGroup;
 			children = (
+				3D29593E27B2C7B300BA7C0A /* Xcode-config */,
 				EFC5909525840B1500E5D4B4 /* AudioWaveformGraph */,
 				EFC5909425840B1500E5D4B4 /* Products */,
 			);
@@ -191,7 +208,10 @@
 			files = (
 				EFC590A325840B1700E5D4B4 /* LaunchScreen.storyboard in Resources */,
 				EFC590AC25840B7500E5D4B4 /* audio.mp3 in Resources */,
+				3D29594227B2C7B300BA7C0A /* DEVELOPMENT_TEAM.template.xcconfig in Resources */,
+				3D29594327B2C7B300BA7C0A /* DEVELOPMENT_TEAM.xcconfig in Resources */,
 				EFC590A025840B1700E5D4B4 /* Assets.xcassets in Resources */,
+				3D29594427B2C7B300BA7C0A /* Shared.xcconfig in Resources */,
 				EFC5909E25840B1500E5D4B4 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -245,6 +265,7 @@
 /* Begin XCBuildConfiguration section */
 		EFC590A525840B1700E5D4B4 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3D29594127B2C7B300BA7C0A /* Shared.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -306,6 +327,7 @@
 		};
 		EFC590A625840B1700E5D4B4 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3D29594127B2C7B300BA7C0A /* Shared.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -366,7 +388,6 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = AudioWaveformGraph/AudioWaveformGraph.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 899AA7RGN5;
 				INFOPLIST_FILE = AudioWaveformGraph/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -388,7 +409,6 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = AudioWaveformGraph/AudioWaveformGraph.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 899AA7RGN5;
 				INFOPLIST_FILE = AudioWaveformGraph/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
