@@ -53,8 +53,14 @@ class DataProvider {
             idx += hopSize
         }
         
-        summarySampleMax = vDSP.maximum(workingAvgSamples)
-        summarySampleMin = vDSP.minimum(workingAvgSamples)
+        if #available(iOS 13, *) {
+            summarySampleMax = vDSP.maximum(workingAvgSamples)
+            summarySampleMin = vDSP.minimum(workingAvgSamples)
+        }
+        else {
+            vDSP_maxv(workingAvgSamples, 1, &summarySampleMax, vDSP_Length(workingAvgSamples.count))
+            vDSP_minv(workingAvgSamples, 1, &summarySampleMin, vDSP_Length(workingAvgSamples.count))
+        }
         
         summarySamples = workingAvgSamples
         
