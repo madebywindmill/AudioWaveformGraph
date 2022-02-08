@@ -53,8 +53,14 @@ class DataProvider {
             idx += hopSize
         }
         
-        summarySampleMax = vDSP.maximum(workingAvgSamples)
-        summarySampleMin = vDSP.minimum(workingAvgSamples)
+        if #available(iOS 13, *) {
+            summarySampleMax = vDSP.maximum(workingAvgSamples)
+            summarySampleMin = vDSP.minimum(workingAvgSamples)
+        }
+        else {
+            vDSP_maxv(workingAvgSamples, 1, &summarySampleMax, vDSP_Length(workingAvgSamples.count))
+            vDSP_minv(workingAvgSamples, 1, &summarySampleMin, vDSP_Length(workingAvgSamples.count))
+        }
         
         summarySamples = workingAvgSamples
         
@@ -65,11 +71,11 @@ class DataProvider {
     }
     
     func sample(at time: Double) -> Float {
-        guard let summarySamples = summarySamples else { return 0 }
-        var summarySampleIdx = Int(time / duration * Double(summarySamples.count))
+        // `time` can dip below 0 if rubber-banding to before the first or after the last sample while scrolling.
+        guard (0.0..<duration).contains(time) else { return 0 }
         
-        // fail safe
-        summarySampleIdx = min(summarySampleIdx, summarySamples.count - 1)
+        guard let summarySamples = summarySamples else { return 0 }
+        let summarySampleIdx = Int(time / duration * Double(summarySamples.count))
         
         return summarySamples[summarySampleIdx]
     }

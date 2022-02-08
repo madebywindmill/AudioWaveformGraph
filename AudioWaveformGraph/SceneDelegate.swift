@@ -7,6 +7,7 @@
 
 import UIKit
 
+@available(iOS 13, *)
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?

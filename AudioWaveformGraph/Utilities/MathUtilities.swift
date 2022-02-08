@@ -10,9 +10,11 @@ import Accelerate
 
 func fast_mean(_ a: [Float], startIdx: Int, endIdx: Int) -> Float {
     var mean: Float = 0
-    // todo: dangling pointer warning is safe in this case since it's never accessed outside of scope, but should be fixed
-    let ptr = UnsafePointer<Float>(a)
-    vDSP_meanv(ptr + startIdx, 1, &mean, UInt(endIdx - startIdx))
+    
+    a.withUnsafeBufferPointer { bufferPointer in
+        let ptr = bufferPointer.baseAddress!
+        vDSP_meanv(ptr + startIdx, 1, &mean, UInt(endIdx - startIdx))
+    }
     
     return mean
 }
