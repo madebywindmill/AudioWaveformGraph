@@ -88,6 +88,7 @@
 				EFC5909425840B1500E5D4B4 /* Products */,
 			);
 			sourceTree = "<group>";
+			usesTabs = 0;
 		};
 		EFC5909425840B1500E5D4B4 /* Products */ = {
 			isa = PBXGroup;
